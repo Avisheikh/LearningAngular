@@ -1,0 +1,12 @@
+<div class="inventory-app">
+  <app-product-list
+    [productList]="products"
+    (onProductSelected)="productWasSelected($event)">
+  </app-product-list>
+</div>
+
+<!-- <div class="inventory-app">
+  <h1>{{ product.name }}</h1>
+  <h2>{{ product.sku }}</h2>
+</div> -->
+
