@@ -9,6 +9,11 @@ import { Product } from './model/Product';
 export class AppComponent {
 
   products: Product[];
+  color: string;
+  fontSize: string;
+  isBordered: boolean;
+  classesObj: Object;
+  classList: string[];
   //product: Product;
 
   // constructor(){
@@ -48,8 +53,26 @@ export class AppComponent {
     ];
   }
 
+  ngOnInit(){
+    this.isBordered = true;
+    this.classList= ['blue','round']
+    this.toggleBorder();
+  }
+
   productWasSelected(product:Product): void{
     console.log('Clicked: ' + product);
+  }
+
+  apply(color: string, fontSize:string): void{
+    this.color = color;
+    this.fontSize = fontSize;
+  }
+
+  toggleBorder(): void{
+    this.isBordered = !this.isBordered;
+    this.classesObj = {
+    bordered: this.isBordered
+    }
   }
 
 }

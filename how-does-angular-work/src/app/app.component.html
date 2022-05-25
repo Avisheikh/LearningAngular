@@ -9,4 +9,69 @@
   <h1>{{ product.name }}</h1>
   <h2>{{ product.sku }}</h2>
 </div> -->
+<br>
+<br>
 
+<!-- <div [style.background-color]="'yellow'">
+  Uses fixed yellow background.
+</div>
+
+<div [ngStyle]="{color:'white', 'background-color':'blue'}">
+  Uses fixed white text on blue background
+</div> -->
+
+<div class="ui input">
+  <input type="text" name="color" value="{{color}}" #colorinput>
+</div>
+
+<div class="ui input">
+  <input type="text" name="fontSize" value="{{fontSize}}" #fontinput>
+</div>
+
+<button class="ui primary button" (click)="apply(colorinput.value, fontinput.value)">
+  Apply Settings
+</button>
+
+<div>
+  <span [ngStyle]="{color:'red'}" [style.font-size.px]="fontSize">
+      red text
+  </span>
+</div>
+
+<h4 class="ui horizontal divider header">
+  ngStyle with object property from variable
+</h4>
+
+<div>
+  <span [ngStyle]="{color:color}">
+      {{color}} text
+  </span>
+</div>
+
+<h4 class="ui horizontal divider header">
+  style from variable
+</h4>
+
+<div [style.background-color]="color" style="color: rgb(63, 0, 0);">
+  {{color}} background
+</div>
+
+<div [ngClass]="{bordered: false}">
+  This is never bordered;
+</div>
+
+<div [ngClass]="{bordered: true}"> 
+  This is always bordered;
+</div>
+
+<div [ngClass]="{bordered: isBordered}">
+  Using object literaal. Border {{ isBordered ? "ON" : "OFF"}}
+</div>
+
+<div [ngClass]="classesObj">
+  Using object var. Border {{ classesObj.bordered ? "ON":"OFF"}}}
+</div>
+
+<div class="base" [ngClass]="['blue', 'round']">
+  This will always have a blue  background and round corners.
+</div>
