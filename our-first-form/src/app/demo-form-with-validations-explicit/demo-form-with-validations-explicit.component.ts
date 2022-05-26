@@ -24,6 +24,18 @@ export class DemoFormWithValidationsExplicitComponent implements OnInit {
     });
 
     // this.sku = this.myForm.controls['sku'];
+
+    this.myForm.controls['sku'].valueChanges.subscribe(
+      (value: string) => {
+        console.log('sku changed to:', value);
+      }
+    );
+
+    this.myForm.valueChanges.subscribe(
+      (form: any) => {
+        console.log('form changed to: ', form);
+      }
+    );
    }
 
   ngOnInit(): void {
