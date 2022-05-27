@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Demo Form: with validations (explicit)</h2>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)"
+    [class.error]="!myForm.valid && myForm.touched"
+    >
+
+    <div class="field" [class.error]="!myForm.controls['sku'].valid && myForm.controls['sku'].touched">
+        <label for="skuInput">SKU: </label>
+        <input type="text"
+                id="skuInput"
+                placeholder="SKU"
+                [formControl]="myForm.controls['sku']"
+        > <br><br>
+        <div *ngIf="!myForm.controls['sku'].valid">SKU is invalid</div>
+        <div *ngIf="myForm.controls['sku'].hasError('required')">SKU is required.</div>
+        <div *ngIf="!myForm.valid">Form is invalid</div>
+        <div *ngIf="myForm.controls['sku'].hasError('invalidSku')">SKU must being with <span>123</span></div>
+    </div> <br><br>
+
+    <button type="submit">Submit</button>
+
+    </form>
+</div>
